@@ -1,0 +1,392 @@
+\documentclass{amsart}
+
+\input{StandardPaper2.tex}
+
+\title[Isoperimetric Comparison: Ricci Flow on Three Manifolds]
+ {Isoperimetric Comparisons For Ricci Flow on Three Manifolds with Positive Curvature}
+
+\curraddr{}
+\email{}
+\date{\today}
+
+\dedicatory{}
+\subjclass[2010]{}
+\keywords{}
+
+\begin{document}
+
+\begin{abstract}
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+Let \(M^3\) be a smooth, three-dimensional manifold and \(g = g_t\) a smooth one-parameter family of metrics evolving by the Ricci flow:
+\begin{equation}
+\label{eq:rf}
+\partial_t g = -2 \ric.
+\end{equation}
+
+The Isoperimetric Profile is defined by,
+\[
+I_t (x) = I(x, t) = \inf\{\abs{\bdry{\Omega}}_{g_t} : \abs{\Omega}_{g_t} = x\}
+\]
+and the infimum ranges over all compactly contained, connected, open sets \(\Omega\) with smooth boundary. An isoperimetric domain is such a set \(\Omega\) satisfying \(I(\abs{\Omega}_{g_t}, t) = \abs{\bdry{\Omega_0}}_{g_t}\).
+
+\section{A Differential Inequality For The Isoperimetric Profile}
+\label{sec:iso_diff_ineq}
+
+In this section, we begin by deriving the general formulae for metrics evolving according to
+\begin{equation}
+\label{eq:dtg}
+\partial_t g = 2h
+\end{equation}
+where \(h \in \Gamma^{\infty}(M, T^{\ast}M \odot T^{\ast} M)\) is a smooth section of symmetric, bilinear forms on \(TM\). We retain the \(2\) simply for the convenience of avoiding factors of \(1/2\) appearing thoughout our formulae below. The case of the Ricci flow is of course \(h = -\ric\).
+
+\subsection{Variation Formulae}
+\label{subsec:iso_diff_ineq_variation}
+
+Our approach here is variational. Let \(\Omega_0 \subset M\) be an isoperimetric domain at time \(t = t_0\) so that,
+\[
+I_{t_0} (\abs{\Omega_0}_{t_0}) = \abs{\bdry{\Omega_0}}_{t_0}.
+\]
+Let also \(\Omega_u\) denote a smooth variation of \(\Omega_0\). That is, there exists an \(\epsilon > 0\) and a smooth map \(\phi: \Omega_0 \times (-\epsilon, \epsilon) \to M\) such that, writing \(\phi_u(\cdot) = \phi(\cdot, u)\) and \(\Omega_u = \phi_u(\Omega_0)\), we have \(\phi_0\) is the inclusion \(\Omega_0 \to M\) and for each \(u\), \(\phi_u\) is an embedding. Let \(\nu\) be the outer unit normal normal vector field to \(\bdry{\Omega_0}\). We consider unit speed, normal variations: \(\phi_{\ast} \partial_u = \nu\) along \(\bdry{\Omega_0}\) which always exist for sufficiently small \(\epsilon\) by working in a tubular neighbourhood of \(\bdry{\Omega_0}\).
+
+\begin{lemma}
+\label{lem:spatial_variation}
+The first variation of volume and perimeter at \(u = 0\) are
+\[
+\partial_u \abs{\Omega_u} = \abs{\bdry{\Omega_0}}, \quad \partial_u \abs{\bdry{\Omega_u}} = H_0 \abs{\bdry{\Omega_0}}
+\]
+where \(H_0\) is the mean curvature of \(\bdry{\Omega_0}\) which is constant since is isoperimetric. The second variations are
+\[
+\partial_u^2 \abs{\Omega_u} = H_0 \abs{\bdry{\Omega_0}}
+\]
+and
+\[
+\partial_u^2 \abs{\bdry{\Omega_u}} = H_0^2 \abs{\bdry{\Omega_0}} - \int_{\bdry{\Omega_0}} \left(\abs{\sff}^2 + \ric(\nu)\right) \sigma.
+\]
+\end{lemma}
+
+\begin{proof}
+See \cite[Chapter 1]{Li:/2012}.
+\end{proof}
+
+\begin{lemma}
+\label{lem:time_variation}
+\[
+\partial_t \abs{\Omega_0} = \int_{\Omega_0} \Tr_g \speed \mu,
+\]
+and
+\[
+\partial_t \abs{\bdry{\Omega_u}} = \int_{\bdry{\Omega_0}} \Tr_g \speed - \speed(\nu, \nu) \sigma.
+\]
+\end{lemma}
+
+\begin{proof}
+The time variation of \(\abs{\Omega_0}\) may be computed from the standard formula for differentiating a determinant,
+\[
+\partial_t \mu = \tfrac{1}{2}\Tr(g^{\ast} \otimes \partial_t g) =  \tfrac{1}{2} \Tr (g^{\ast} \otimes 2\speed)\mu = \Tr_g \speed \mu
+\]
+where \(g^{\ast}\) is the dual metric defined by \(g^{\ast} (\alpha, \beta) = g(\alpha^{\sharp}, \beta^{\sharp})\) and \(\alpha^{\sharp}\) is the metric contraction of \(\alpha\) defined by \(\alpha(X) = g(\alpha^{\sharp}, X)\) for any tangent vector \(X\). The variation of \(\abs{\Omega_0}\) then follow immediately by differentiating under the integral sign.
+
+For the time variation of \(\abs{\bdry{\Omega_0}}\) we use the definition,
+\[
+\sigma = \intprod_{\nu} \mu = \Tr \nu \otimes \mu.
+\]
+Then,
+\begin{equation}
+\label{eq:dtsigma}
+\partial_t \sigma = \Tr(\partial_t \nu \otimes \mu) + \Tr(\nu \otimes \partial_t \mu).
+\end{equation}
+
+The second term is simple,
+\begin{equation}
+\label{eq:dtsigma2}
+\begin{split}
+\Tr(\nu \otimes \partial_t \mu) &= \Tr(\nu \otimes \Tr(g^{\ast} \otimes \speed) \mu) \\
+&= \Tr(g^{\ast} \otimes \speed) \Tr (\nu \otimes \mu) \\
+&= \Tr(g^{\ast} \otimes \speed) \sigma.
+\end{split}
+\end{equation}
+
+For the first term, we must compute \(\partial_t \nu\). Note that \(\bdry{\Omega_0}\) itself is not changing, whereas the metric is changing, and hence so too is \(\nu\) which is defined via,
+\begin{equation}
+\label{eq:normalequation}
+g_t(\nu, \nu) = 1, \quad g_t(\nu, X) = 0 \text{ for every \(X\) tangent to \(\bdry{\Omega_0}\)}.
+\end{equation}
+
+From the first defining equation in \eqref{eq:normalequation} and the evolution of the metric, \eqref{eq:dtg}
+\[
+0 = \partial_t (g(\nu, \nu)) = (\partial_t g) (\nu, \nu) + 2g(\partial_t \nu, \nu)
+\]
+so that
+\[
+g(\partial_t \nu, \nu) = -\speed(\nu, \nu).
+\]
+Thus we obtain,
+\begin{equation}
+\label{eq:dtsigma1}
+\Tr(\partial_t \nu \otimes \mu) = \intprod_{\partial_t\nu} \mu =  g(\partial_t \nu, \nu) \sigma = -\speed(\nu, \nu) \sigma.
+\end{equation}
+
+Substitution of \eqref{eq:dtsigma1} and \eqref{eq:dtsigma2} into \eqref{eq:dtsigma} and differentiating under the integral sign again completes the proof.
+\end{proof}
+
+\begin{rem}
+For the record, the second defining equation in \eqref{eq:normalequation}, the evolution of the metric, \eqref{eq:dtg} and \(\partial_t X = 0\) give
+\[
+g(\partial_t \nu, X) = -(\partial_t g) (\nu, X) - g(\nu, \partial_t X) = -\speed(\nu, X)
+\]
+which along with \(g(\partial_t \nu, \nu) = - \speed(\nu, \nu)\) completely determines \(\partial_t \nu\):
+\[
+\partial_t \nu = -\speed(\nu, \nu) \nu - 2\Tr_g h(\nu, \cdot).
+\]
+\end{rem}
+
+\subsection{Viscosity Equation}
+\label{subsec:iso_diff_ineq_viscosity}
+
+\begin{thm}
+\label{thm:general_viscosity}
+The isoperimetric profile is a viscosity super-solution of,
+\[
+\begin{split}
+\partial_t I &\geq I^2 I'' +  \int_{\bdry{\Omega_0}} \left(\abs{\sff}^2 + \ric(\nu, \nu)\right) \sigma  - I'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu)\right) \sigma \\
+&= I^2 I'' +  (I')^2 I + \int_{\bdry{\Omega_0}} \left(Tr_g \speed + R_{\Omega_0} - \speed(\nu, \nu) - \ric(\nu)\right) \sigma \\
+&\quad - \left(I'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right) .
+\end{split}
+\]
+where \(\Omega_0 = \Omega_0(x_0, t_0)\) is an isoperimetric domain at \((x_0, t_0)\).
+\end{thm}
+
+\begin{rem}
+At this level of generality, we cannot say anything more. The first line of each equation depends on the speed \(\speed\) and it's relation to the ambient curvature along an (essentially unknown) isoperimetric domain. To go further, we must specify the speed which we do later when we specialise to the Ricci flow. More difficult to deal with is the second line, which also depends on the speed \(\speed\) but cannot be balanced against the other terms unless we can apply some (generally topological) argument to rewrite it as a boundary integral. We also address this issue below in dimensions two and three.
+\end{rem}
+
+\begin{proof}
+Let \(\phi \leq_{x=x_0, t\leq t_0} I\) be smooth, lower supporting function at \((x_0, t_0)\), \(\Omega_0\) an isoperimetric domain for \((x_0, t_0)\) and \(\Omega_u\) a variation of \(\Omega_0\). Define,
+\[
+\Phi(u, t) = \abs{\bdry{\Omega_u}}_t - \phi(\abs{\Omega_u}_t, t).
+\]
+Then \(\Phi\) is smooth and since \(\abs{\bdry{\Omega_u}}_t \geq I(\abs{\Omega_u}_t, t) \geq \phi(\abs{\Omega_u}_t, t)\), we have \(\Phi \geq 0\) for \(u \in (-\epsilon, \epsilon)\) and \(t \leq t_0\) along with \(\Phi(0, t_0) = 0\). Throughout this proof we tacitly make use of the variation formulae given in \Cref{lem:spatial_variation} and \Cref{lem:time_variation}.
+
+At \((0, t_0)\), the first variation in \(u\) of \(\Phi\) vanishes giving,
+\[
+H_0 \abs{\bdry{\Omega_0}} = \partial_u \abs{\bdry{\Omega_u}} = \phi' \partial_u \abs{\Omega_u} = \phi' \abs{\bdry{\Omega_0}},
+\]
+so that \(\phi' = H_0\). We thus have the identities,
+\begin{equation}
+\label{eq:viscosity_identities}
+\abs{\Omega_0} = x_0, \quad I(x_0, t_0) = \abs{\bdry{\Omega_0}} = \phi(x_0, t_0), \quad H_0 = \phi'(x_0, t_0).
+\end{equation}
+
+Also, at \((0, t_0)\), the time variation is non-positive, and the second spatial variation is non-negative, hence
+\[
+\begin{split}
+0 &\geq (\partial_t - \partial_u^2) \Phi \\
+&= (\partial_t - \partial_u^2) \abs{\bdry{\Omega}} - \phi'(\partial_t - \partial_u^2) \abs{\Omega_u} + \left(\partial_u \abs{\Omega_u}\right)^2 \phi'' - \partial_t \phi.
+\end{split}
+\]
+
+From the variation formulae, and using equation \eqref{eq:viscosity_identities} we obtain
+\begin{align*}
+(\partial_t - \partial_u^2) \abs{\bdry{\Omega}} &= \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu) + \abs{\sff}^2 + \ric(\nu, \nu)\right) \sigma - (\phi')^2 \phi, \\
+(\partial_t - \partial_u^2) \abs{\Omega_u} &= \int_{\Omega_0} \Tr_g \speed \mu - \phi \phi', \\
+\intertext{and}
+\left(\partial_u \abs{\Omega_u}\right)^2 &= \phi^2.
+\end{align*}
+
+Putting this together we arrive at,
+\[
+\begin{split}
+\partial_t \phi &\geq \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu) + \abs{\sff}^2 + \ric(\nu, \nu) \right)\sigma - (\phi')^2 \phi \\
+&\quad - \phi'\int_{\Omega_0} \Tr_g \speed \mu + \phi (\phi')^2 \\
+&\quad + \phi^2 \phi'' \\
+&= \phi^2 \phi'' + \int_{\bdry{\Omega_0}} \left(\abs{\sff}^2 + \ric(\nu, \nu)\right) \sigma - \phi'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu)\right) \sigma.
+\end{split}
+\]
+The inequality in the theorem follows by the definition of viscosity super solution.
+
+For the equality in the statement of the theorem, we use the Gauss equation, which states,
+\[
+2 \ric(\nu) + \abs{\sff}^2 = R_{\Omega_0} + H^2 - R_{\bdry{\Omega_0}}.
+\]
+Thus we obtain,
+\[
+\begin{split}
+\partial_t \phi - \phi^2 \phi'' &\geq \int_{\bdry{\Omega_0}} \left(\abs{\sff}^2 + \ric(\nu, \nu)\right) \sigma  - \phi'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu)\right) \sigma \\
+&= (\phi')^2 \phi - \phi'\int_{\Omega_0} \Tr_g \speed \mu \\
+&\quad + \int_{\bdry{\Omega_0}} \left(-\ric(\nu) + R_{\Omega_0} - R_{\bdry{\Omega_0}} + \Tr_g \speed - \speed(\nu, \nu)\right) \sigma
+\end{split}
+\]
+as required.
+\end{proof}
+
+We can improve the theorem somewhat in two and three dimensions.
+
+\begin{cor}
+\label{cor:low_dim_general_viscosity}
+In two dimensions,
+\[
+\begin{split}
+\partial_t I - I^2 I'' - I(I')^2 &\geq \int_{\bdry{\Omega_0}} \left(\Tr_g X + R_{\Omega_0} - \speed(\nu, \nu) - \ric(\nu)\right)\sigma \\
+&\quad - I'\int_{\Omega_0} \Tr_g \speed \mu
+\end{split}
+\]
+while in three dimensions,
+\[
+\begin{split}
+\partial_t I - I^2 I'' - I(I')^2 &\geq \int_{\bdry{\Omega_0}} \left(\Tr_g \speed + R_{\Omega_0} - \speed(\nu, \nu) - \ric(\nu)\right)\sigma \\
+&\quad - \left(I'\int_{\Omega_0} \Tr_g \speed \mu +  4\pi \chi(\bdry{\Omega_0})\right).
+\end{split}
+\]
+\end{cor}
+
+\begin{proof}
+In two dimensions, \(\bdry{\Omega_0}\) is one dimensional, hence \(R_{\bdry{\Omega_0}} = 0\). Substitution in into the second equality in \Cref{thm:general_viscosity} gives the two dimensional result.
+
+In three dimensions, \(\bdry{\Omega_0}\) is two dimensional, hence \(R_{\bdry{\Omega_0}} = 2K\) and the Gauss-Bonnet formula implies,
+\[
+\int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}} = 4\pi \chi(\bdry{\Omega_0}).
+\]
+where \(\chi(\bdry{\Omega_0})\) denotes the Euler characteristic and we used that \(\bdry{\bdry{\Omega_0}} = \emptyset\). The three dimensional result now also follows from substitution in into the second equality in \Cref{thm:general_viscosity}.
+\end{proof}
+
+\section{The Ricci Flow}
+\label{subsec:flows_ricci}
+
+The Ricci flow is the case where $\speed = -\ric$, and so $\Tr_g \speed = -R$. The viscosity equation in \Cref{thm:general_viscosity} looks quite appealing in this case:
+\begin{equation}
+\label{eq:viscosity_ricciflow}
+\partial_t I \geq I^2I'' + I(I')^2 + \left(I'\int_{\Omega_0} R \mu - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right).
+\end{equation}
+
+\subsection*{Two dimensional Ricci Flow}
+
+Using \Cref{cor:low_dim_general_viscosity}, in two dimensions this becomes,
+\[
+\partial_t I \geq I^2I'' + I(I')^2 + I'\int_{\Omega_0} R \mu.
+\]
+After an application of the Gauss-Bonnet theorem, the last term becomes,
+\[
+I'\int_{\Omega_0} R \mu = 4\pi\chi(\Omega_0)I' - 2\int_{\bdry{\Omega_0}} H \sigma = 4\pi\chi(\Omega_0)I'- 2 I (I')^2
+\]
+and so we get,
+\begin{equation}
+\label{eq:2d_viscosity_ricciflow}
+\begin{split}
+\partial_t I &\geq I^2I'' - I(I')^2 + 4\pi\chi(\Omega_0)I' \\
+&= I^3 \Delta \ln I + 4\pi\chi(\Omega_0)I'.
+\end{split}
+\end{equation}
+Thus we arrive at a rather more usable differential inequality with the only unknown term coming from the topology of isoperimetric domains, which depends on \(x\). Rather complete results for the closed, two-dimensional case are described in \cite{Bryan:/2016,AndrewsBryan:/2010}.
+
+\subsection*{Three dimensional Ricci Flow}
+
+Using \Cref{cor:low_dim_general_viscosity}, in three dimensions we have
+\begin{equation}
+\label{eq:3d_viscosity_ricciflow}
+\begin{split}
+\partial_t I &\geq I^2I'' + I(I')^2 + I'\int_{\Omega_0} R \mu - 4\pi\chi(\bdry{\Omega_0}) \\
+&= I^2I'' + I(I')^2 + I'\einsteinhilbert({\Omega_0}) - 4\pi\chi(\bdry{\Omega_0})
+\end{split}
+\end{equation}
+where \(\einsteinhilbert({\Omega_0}) = \int_{\Omega_0} \Sc \mu\) is the Einstein-Hilbert functional.
+
+Compared to the two-dimensional case, the second to last term presents some difficulties since it cannot (in general) be written purely in terms of topological invariants. On the other hand, it is the Einstien-Hilbert functional on an isoperimetric domain and thus has nice properties, especially in relation to the Ricci flow that we may be able to exploit.
+
+
+\section{Comparison Principle}
+\label{sec:comparison}
+
+Now we would like to come up with a comparison principle for the isoperimetric profile under the Ricci flow in three dimensions. The first difficulty is that the profile is defined on the varying domain
+\[
+\{(x, t) : 0 < x < \abs{M_t}, 0 \leq t < T\}
+\]
+where both \(\abs{M_t}\) and \(T\) depend on the particular one-parameter family of metrics, \(g_t\) under consideration. We overcome this by an appropriate change of \emph{independent variables.} Another difficulty is that the \emph{dependent variable} \(I\) has uncontrolled range, which we overcome by the scaling of the profile. The choice for the scaling is determined by the scaling of the profile itself, while the change of time parameter is chosen to obtain a PDE in the transformed variables.
+
+\begin{thm}[Comparison Theorem]
+\label{thm:comparison}
+Let \(\bar{\varphi} : (y, \tau) \in [0, 1] \times [0, \infty) \to \R\) satisfy
+\[
+\partial_t \bar{\varphi} \leq \bar{\varphi}^2 \bar{\varphi}'' - \bar{\varphi}(\bar{\varphi}')^2 + \abs{M_t}^{-1/n} \einsteinhilbert(M_t)\left(\frac{2}{n} \bar{\varphi} - y \bar{\varphi}'\right) + \abs{M_t}^{-1/n} \einsteinhilbert(\Omega_0) \bar{\varphi}' - 4\pi\chi(\bdry{\Omega_0}).
+\]
+and define
+\[
+\varphi(x, t) = \abs{M_t}^{(n-1)/n} \bar{\varphi} \left(\frac{x}{\abs{M_t}}, \int_0^t \abs{M_t}^{-2/n} dt\right).
+\]
+If \(\varphi(x, 0) \leq I(x, 0)\) for every \(x \in [0, \abs{M_0}]\), then \(\varphi(x, t) \leq I(x, 0)\) for every \(x \in [0, \abs{M_0}]\) and \(t \in [0, T)\).
+\end{thm}
+
+\begin{rem}
+Under scaling the metric,
+\[
+g \mapsto c g
+\]
+we have
+\begin{align*}
+\mu &\mapsto c^{n/2} \mu \\
+\Sc &\mapsto c^{-1} \Sc \\
+\einsteinhilbert &\mapsto c^{(n-2)/2} \einsteinhilbert.
+\end{align*}
+In particular
+\[
+\abs{M_t}^{-1/n} \einsteinhilbert \mapsto c^{(n-3)/2} \abs{M_t}^{-1/n} \einsteinhilbert
+\]
+is not scale invariant but does scale exactly as the other terms in the differential inequality from the Comparison Thereom \ref{thm:comparison} (see the proof below). In particular, for \(n=2\), \(\einsteinhilbert\) is already scale invariant and equal to \(8\pi\chi(M)\) by Gauss-Bonnet and the differential inequality scales like \(\abs{M_t}^{-1/2}\). The case \(n=3\) is particularly special in that it is in fact scale invariant!
+\end{rem}
+
+\begin{proof}
+Let us write \(\lambda = \abs{M_t}^{(n-1)/n}\), \(y = \frac{x}{\abs{M_t}}\) and \(\tau(t) = \int_0^t \abs{M_t}^{-2/n} dt\). Then we have
+\[
+\begin{split}
+\varphi(x, t) &= \lambda \bar{\varphi} (y(x,t), \tau(t)).
+\end{split}
+\]
+Using \(\partial_t \abs{M_t} = \einsteinhilbert(M_t)\), we also have
+\begin{align*}
+\partial_t \lambda &= \frac{n-1}{n} \abs{M_t}^{-1/n} \einsteinhilbert(M_t) \\
+\partial_t y &= -\frac{x}{\abs{M_t}} \abs{M_t}^{-1} \einsteinhilbert(M_t) \\
+y' &= \abs{M_t}^{-1} \\
+y'' &= 0 \\
+\partial_t \tau &= \abs{M_t}^{-2/n}.
+\end{align*}
+
+The time derivative is,
+\[
+\begin{split}
+\partial_t \varphi &= (\lambda \partial_t \tau) \partial_{\tau} \bar{\varphi} + (\partial_t \lambda) \bar{\varphi} + (\lambda \partial_t y) \bar{\varphi}' \\
+&= \abs{M_t}^{(n-3)/n} \partial_{\tau} \bar{\varphi} + \left(\frac{n-1}{n} \bar{\varphi} - \frac{x}{\abs{M_t}} \bar{\varphi}'\right) \abs{M_t}^{-1/n} \einsteinhilbert(M_t)
+\end{split}
+\]
+
+The spatial derivatives are
+\begin{align*}
+\varphi' &= \abs{M_t}^{-1/n} \bar{\varphi}' \\
+\varphi'' &= \abs{M_t}^{-(n+1)/n} \bar{\varphi}''
+\end{align*}
+so that
+\[
+\begin{split}
+\varphi^2 \varphi'' + \varphi(\varphi')^2 &= \abs{M_t}^{2(n-1)/n} \bar{\varphi}^2 \abs{M_t}^{-(n+1)/n} \bar{\varphi}'' + \abs{M_t}^{(n-1)/n} \bar{\varphi} \abs{M_t}^{-2/n} (\bar{\varphi}')^2 \\
+&= \abs{M_t}^{(n-3)/n} (\bar{\varphi}^2 \bar{\varphi}'' + \bar{\varphi}(\bar{\varphi}')^2.
+\end{split}
+\]
+
+Then we have
+\begin{equation}
+\label{eq:scaled_diff_ineq}
+\begin{split}
+\partial_t \varphi - \varphi^2 \varphi'' - \varphi(\varphi')^2 &= \abs{M_t}^{(n-3)/n}\left[ \partial_{\tau} \bar{\varphi} -\bar{\varphi}^2 \bar{\varphi}'' - \bar{\varphi}(\bar{\varphi}')^2\right] \\
+&\quad + \left(\frac{n-1}{n} \bar{\varphi} - y\bar{\varphi}'\right) \abs{M_t}^{-1/n} \einsteinhilbert(M_t).
+\end{split}
+\end{equation}
+Note in particular, by the remark after the theorem statement, the entire equation \eqref{eq:scaled_diff_ineq} scales like \(\abs{M_t}^{(n-3)/n}\).
+
+The proof now follows by the maximum principle, since \(I\) is a viscosity sub-solution whilst \(\varphi\) is a viscosity super-solution by the hypotheses of the theorem.
+\end{proof}
+
+\end{document}
