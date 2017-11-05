@@ -56,7 +56,7 @@ In this section, we begin by deriving the general formulae for metrics evolving 
 \end{equation}
 where \(h \in \Gamma^{\infty}(M, T^{\ast}M \odot T^{\ast} M)\) is a smooth section of symmetric, bilinear forms on \(TM\). We retain the \(2\) simply for the convenience of avoiding factors of \(1/2\) appearing thoughout our formulae below. The case of the Ricci flow is of course \(h = -\ric\).
 
-\subsection{Variation Formulae}
+\subsubsection{Variation Formulae}
 \label{subsec:iso_diff_ineq_variation}
 
 Our approach here is variational. Let \(\Omega_0 \subset M\) be an isoperimetric domain at time \(t = t_0\) so that,
@@ -157,13 +157,14 @@ which along with \(g(\partial_t \nu, \nu) = - \speed(\nu, \nu)\) completely dete
 \]
 \end{rem}
 
-\subsection{Barrier Equation}
+\subsubsection{Barrier Equation}
 
 \begin{itemize}
 \item Change of variables obtains an upper barrier - much stronger in general than viscosity. Can be used to derive the viscosity equation.
+\item This perhaps is not needed to be written down though. It's written elsewhere.
 \end{itemize}
 
-\subsection{Viscosity Equation}
+\subsubsection{Viscosity Equation}
 \label{subsec:iso_diff_ineq_viscosity}
 
 \begin{thm}
@@ -277,6 +278,9 @@ where \(\chi(\bdry{\Omega_0})\) denotes the Euler characteristic and we used tha
 \begin{itemize}
 \item Positive Ricci curvature gives concavity of the profile
 \item Concavity of the profile gives connectedness of isoperimetric domains
+\item These follow from the barrier inequality, which is already in \cite{MR875084} so probably is not needed to be proven here. Definitely needs to be stated though!
+\item This allows us to conclude that \(\bdry{\Omega}\) is connected (probably need to work manifolds of positive Ricci with universal cover the sphere?) and hence \(\chi(\bdry{\Omega}) \geq 2\pi \chi(\S^2)\). Otherwise if there are multiple components to the boundary we don't get this bound.
+\item The bound is good because this is exactly equality on the round sphere - that is, \(\Omega_0\) is a spherical cap with \(\bdry{\Omega} = \S^2\).
 \end{itemize}
 
 \section{The Isoperimetric Profile Under The Ricci Flow}
