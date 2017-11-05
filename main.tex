@@ -470,4 +470,198 @@ The aim is to obtain convergence to a contant sectional curvature manifold, i.e.
 \end{itemize}
 
 \subsection{}
+
+\section{How It Works For CSF Distance Comparison}
+
+Equation (10) of \cite{AndrewsBryan:01/2011} gives the differential inequality for the comparison function:
+\[
+\partial_t Z \geq 4 Z'' + \frac{1}{2\pi} \int_{\gamma} \kappa^2 ds (Z - \ell Z') + Z'\int_p^q \kappa^2 ds.
+\]
+This is without the \(\epsilon\) terms which are just for applying the maximum principle. Here it assumed that \(\gamma\) has been normalised to have fixed length \(L = 2\pi\). This equation is not scale invariant though it's easy enough to obtain the scale invariant version by appropriate placing of \(L/2\pi\).
+
+Compare with the isoperimetric profile under Ricci Flow in the comparison theorem \ref{thm:comparison}
+\[
+\begin{split}
+\partial_{\tau} \bar{\varphi} - \bar{\varphi}^2 \bar{\varphi}'' - \bar{\varphi}(\bar{\varphi}')^2 &\leq -\abs{M_t}^{-\tfrac{n-2}{n}} \left[\einsteinhilbert(M_t)\left(\frac{n-1}{n} \bar{\varphi} - y \bar{\varphi}'\right) + \einsteinhilbert(\Omega_0)\bar{\varphi}'\right] \\
+&- \abs{M_t}^{-\tfrac{n-3}{n}}\int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma.
+\end{split}
+\]
+
+Both equations are essentially of the form
+\[
+\partial_t u = L u + \bar{Q} (u' - x u) + \Delta Q u' + C
+\]
+for \(u = u(x, t)\). Here \(L\) is some second order differential operator, \(\bar{Q}\) is the global curvature term and \(\Delta Q\) depends on the optimal domain. Everything is scale invariant.
+
+For the curve shortening flow, to determine a differential inequality for \(\varphi\) we need to deal with the \(\bar{Q}\) and \(\Delta Q\) terms. We have
+\[
+\bar{Q} = \frac{1}{2\pi}\int_{\gamma} \kappa^2 ds
+\]
+and
+\[
+\Delta Q = \int_p^q \kappa^2 ds
+\]
+
+For the global term, by H\"older's inequality we have
+\[
+\bar{Q} = \frac{1}{2\pi} \int_{\gamma} \kappa^2 ds \geq \frac{1}{2\pi} \frac{\left(\int |\kappa| ds\right)^2}{L} \geq \frac{1}{2\pi} \frac{(2\pi)^2}{2\pi} = 1 = \bar{Q_0}
+\]
+where \(\bar{Q}_0\) is \(\bar{Q}\) on the sphere.
+
+For the local term, again by H\"older's inequality
+\[
+\Delta Q = \int_p^q \kappa^2 ds \geq \frac{\theta^2}{\ell} = \frac{4 \arccos^2(Z')}{\ell}.
+\]
+
+Thus if \(\varphi\) is concave and symmetric, then \(\varphi - \ell \varphi' > 0\) and \(\varphi' > 0\) (for \(\ell \in [0, \pi]\)). Then using our inequalities, if \(\varphi\) satisfies
+\[
+\partial_t \varphi \leq 4 \varphi'' + (\varphi - \ell \varphi') + \varphi' \frac{4 \arccos^2(\varphi')}{\ell}
+\]
+then we have our sub-solution.
+
+Now the important observation is that the function \(f_0 = 4 \arccos^2\) is convex and satisfies
+\[
+\Delta Q_0 = \frac{1}{x} f_0(Z_0')
+\]
+on the circle with profile \(Z_0\), while
+\[
+\Delta Q \geq \frac{1}{x} f_0(Z')
+\]
+in general. We also have
+\[
+\bar{Q} \geq 1 = \bar{Q}_0.
+\]
+
+H\"older's inequality above gave us the inequality case. To see equality for the circle profile, note that for a circle of radius \(1\),
+\[
+\kappa \equiv 1, \quad L = 2\pi
+\]
+and so
+\[
+\bar{Q}_0 = \frac{1}{2\pi} \int_{\gamma} \kappa^2 ds = 1
+\]
+while
+\[
+\Delta Q_0 = \int_p^q \kappa^2 ds = \ell.
+\]
+Note also that on the unit circle, the angle satisfies
+\[
+\theta = \ell.
+\]
+
+Now, the profile at \(\ell \in [0, 2\pi]\) is just the length of the chord joining two points subtending angle \(\theta = \ell\). Thus
+\[
+Z_0(\ell) = 2 \sin(\ell/2)
+\]
+Then we have
+\[
+Z_0'(\ell) = \cos(\ell/2)
+\]
+so that
+\[
+\frac{1}{\ell} f_0(Z_0') = \frac{1}{\ell} 4 \arccos^2(\cos(\ell/2)) = \frac{4}{\ell} (\ell/2)^2 = \ell = \Delta Q_0
+\]
+and we do indeed have equality for the circle profile.
+
+So now we want to find a solution of
+\[
+\partial_t \varphi \leq 4 \varphi'' + (\varphi - \ell \varphi') + \varphi' \frac{4\arccos^2(\varphi')}{\ell}
+\]
+and the key to doing so is to expand \(f_0\) to second order in a Taylor series with remainder around the circle profile:
+\[
+f_0(\varphi') = f_0(Z_0') + f_0'(Z_0')(\varphi' - Z_0') + \frac{1}{2} f_0''(W)(\varphi' - Z_0')^2 \geq f_0(Z_0') + f_0'(Z_0')(\varphi' - Z_0')
+\]
+where \(W\) lies between \(\varphi'\) and \(Z_0'\) and \(f_0''\geq 0\) by convexity of \(f_0\).
+
+So now we have improved our inequality to
+\[
+\partial_t \varphi \leq 4 \varphi'' + (\varphi - \ell \varphi') + \frac{1}{\ell} \varphi' \left[f_0(Z_0') + f_0'(Z_0')(\varphi' - Z_0')\right]
+\]
+
+Now the first term in our Taylor expansion actually cancels with the \(-\ell\varphi'\) since
+\[
+f_0(Z_0') = \ell^2
+\]
+This is not an accident! You have to trace back where the \(\ell\varphi'\) term came from but I don't have time right now. But this cancelling should be true quite generally!
+
+So now we are left with
+\[
+\partial_t \varphi \leq 4 \varphi'' + \varphi + \frac{1}{\ell} f_0'(Z_0')[(\varphi')^2 - Z_0'\varphi'].
+\]
+
+To solve this equation, we make the ansatz
+\[
+\varphi(\ell, t) = e^t \Phi\left(\frac{Z_0(\ell)}{e^t}\right).
+\]
+That is, we seek a similarity solution after changing variables \(\ell \mapsto Z_0(\ell)\), \(t \mapsto e^t\). This should not be too surprising. After all, we aim to show that the profile \(Z\) converges exponentially fast to \(Z_0\) and we linearised around \(Z_0\) already.
+
+With these substitutions we get
+\begin{align*}
+\partial_t \varphi &= e^t \Phi - Z_0 \Phi' \\
+\varphi' &= Z_0' \Phi' \\
+\varphi'' &= e^{-t} (Z_0')^2 \Phi'' + Z_0'' \Phi'.
+\end{align*}
+Substitution into our inequality then gives
+\[
+e^t \Phi - Z_0 \Phi' \leq (4 e^{-t} (Z_0')^2 \Phi'' + 4 Z_0'' \Phi') + (e^t \Phi - \ell Z_0' \Phi') + \frac{1}{\ell} f_0'(Z_0')[(Z_0' \Phi')^2 - Z_0'\Phi'].
+\]
+Multiplying through by \(e^{-t}\) and rearranging
+\[
+\begin{split}
+0 &\leq -\Phi + Z_0 e^{-t} \Phi' + 4 (e^{-t} Z_0')^2 \Phi'' + 4 Z_0'' e^{-t} \Phi' + \Phi - \ell Z_0' e^{-t}\Phi'+ \frac{e^{-t}}{\ell} f_0'(Z_0')(Z_0' \Phi')^2 - \frac{1}{\ell} f_0'(Z_0') Z_0' e^{-t} \Phi' \\
+&= 4 (e^{-t} Z_0')^2 \Phi'' + \frac{e^{-t}}{\ell} f_0'(Z_0') (Z_0' \Phi')^2 \\
+&\quad + e^{-t}\Phi'\left[4Z_0'' + (Z_0 - \ell Z_0') - \frac{1}{\ell} f_0(Z_0') Z_0'\right] \\
+&= e^{-t} \frac{(Z_0')^2}{Z_0} \left[4e^{-t}Z_0 \Phi'' + \frac{Z_0}{\ell} f_0'(Z_0') (\Phi')^2\right]
+\end{split}
+\]
+since the circle profile satisfies
+\[
+0 = \partial_t Z_0 = 4e^{-t}Z_0 \Phi'' + \frac{Z_0}{\ell} f_0'(Z_0') (\Phi')^2.
+\]
+
+Write
+\[
+u = e^{-t} Z_0
+\]
+for the argument to \(\Phi\) and note that since \(Z_0 = 2 \sin(\ell/2)\), \(Z_0'(\ell) = \cos(\ell/2)\) and \(f_0 = 4 \arccos^2\) we obtain
+\[
+\frac{1}{\ell} Z_0 f_0'(Z_0') = - \frac{1}{\ell} 2 \sin(\ell/2) \frac{8\arccos(\cos(\ell/2))}{\sqrt{1 - \cos^2(\ell/2)}} = - \frac{1}{\ell} 2 \sin(\ell/2) \frac{4\ell}{\sin(\ell/2)} = -8.
+\]
+Thus we are finally reduced to proving
+\[
+0 \leq u \Phi'' - 2 (\Phi')^2
+\]
+
+I've dropped a term somewhere! It should be
+\[
+0 \leq u \Phi'' - 2 \Phi'(\Phi' - 1).
+\]
+
+Then for any constant \(c\), the solution of
+\[
+\begin{cases}
+u \Phi'' - 2 \Phi'(\Phi' - 1) &= 0 \\
+u(0) &= 0
+\end{cases}
+\]
+is exactly the function from \cite{AndrewsBryan:01/2011}:
+\[
+\Phi(u) = 2 c \arctan(u/2c).
+\]
+Furthermore the desired asymptotics for
+\[
+\varphi(\ell, t) = 2c e^t \arctan(\sin(x/2)/2c e^t)
+\]
+follow immediately from the asymptotics of \(Z_0 = \sin(x/2)\) which has the correct asymptotics because it's the circle profile and from
+\[
+\arctan(u) = u - \frac{u^3}{3!} + \cdots
+\]
+so that
+\[
+\begin{split}
+\varphi(\ell, t) &= \sin(\ell/2) - \frac{1}{3!} \frac{1}{4c^2 e^{2t}} \sin(\ell/2)^3 + \cdots \\
+&= \ell/2 - \frac{1}{3!} \left(1 - \frac{1}{4c^2 e^{2t}}\right) \ell^3/8 + \cdots.
+\end{split}
+\]
+Not only do we get the correct first order term, but we also get the exponential decay of the next order term to \(1\) - i.e. to the curvature of the unit circle essentially for free! It is this term that bounds \(\kappa^2\) above via the comparison theorem and the rest is just more or less standard convergence.
 \end{document}
