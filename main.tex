@@ -260,8 +260,12 @@ where \(\chi(\bdry{\Omega_0})\) denotes the Euler characteristic and we used tha
 The Ricci flow is the case where $\speed = -\ric$, and so $\Tr_g \speed = -R$. The viscosity equation in \Cref{thm:general_viscosity} looks quite appealing in this case:
 \begin{equation}
 \label{eq:viscosity_ricciflow}
-\partial_t I \geq I^2I'' + I(I')^2 + \left(I'\int_{\Omega_0} R \mu - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right).
+\begin{split}
+\partial_t I &\geq I^2I'' + I(I')^2 + I'\int_{\Omega_0} R \mu - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \\
+&= I^2I'' + I(I')^2 + \einsteinhilbert(\Omega_0) I - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma
+\end{split}
 \end{equation}
+where \(\einsteinhilbert({\Omega_0}) = \int_{\Omega_0} \Sc \mu\) is the Einstein-Hilbert functional.
 
 \subsection*{Two dimensional Ricci Flow}
 
@@ -288,12 +292,9 @@ Thus we arrive at a rather more usable differential inequality with the only unk
 Using \Cref{cor:low_dim_general_viscosity}, in three dimensions we have
 \begin{equation}
 \label{eq:3d_viscosity_ricciflow}
-\begin{split}
-\partial_t I &\geq I^2I'' + I(I')^2 + I'\int_{\Omega_0} R \mu - 4\pi\chi(\bdry{\Omega_0}) \\
-&= I^2I'' + I(I')^2 + I'\einsteinhilbert({\Omega_0}) - 4\pi\chi(\bdry{\Omega_0})
-\end{split}
+\partial_t I \geq I^2I'' + I(I')^2 + \einsteinhilbert({\Omega_0})I' - 4\pi\chi(\bdry{\Omega_0}).
 \end{equation}
-where \(\einsteinhilbert({\Omega_0}) = \int_{\Omega_0} \Sc \mu\) is the Einstein-Hilbert functional.
+
 
 Compared to the two-dimensional case, the second to last term presents some difficulties since it cannot (in general) be written purely in terms of topological invariants. On the other hand, it is the Einstien-Hilbert functional on an isoperimetric domain and thus has nice properties, especially in relation to the Ricci flow that we may be able to exploit.
 
@@ -311,7 +312,10 @@ where both \(\abs{M_t}\) and \(T\) depend on the particular one-parameter family
 \label{thm:comparison}
 Let \(\bar{\varphi} : (y, \tau) \in [0, 1] \times [0, \infty) \to \R\) satisfy
 \[
-\partial_t \bar{\varphi} \leq \bar{\varphi}^2 \bar{\varphi}'' - \bar{\varphi}(\bar{\varphi}')^2 + \abs{M_t}^{-1/n} \einsteinhilbert(M_t)\left(\frac{2}{n} \bar{\varphi} - y \bar{\varphi}'\right) + \abs{M_t}^{-1/n} \einsteinhilbert(\Omega_0) \bar{\varphi}' - 4\pi\chi(\bdry{\Omega_0}).
+\begin{split}
+\partial_{\tau} \bar{\varphi} - \bar{\varphi}^2 \bar{\varphi}'' - \bar{\varphi}(\bar{\varphi}')^2 &\leq -\abs{M_t}^{-\tfrac{n-2}{n}} \left[\einsteinhilbert(M_t)\left(\frac{n-1}{n} \bar{\varphi} - y \bar{\varphi}'\right) + \einsteinhilbert(\Omega_0)\bar{\varphi}'\right] \\
+&- \abs{M_t}^{-\tfrac{n-3}{n}}\int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma.
+\end{split}
 \]
 and define
 \[
@@ -323,19 +327,25 @@ If \(\varphi(x, 0) \leq I(x, 0)\) for every \(x \in [0, \abs{M_0}]\), then \(\va
 \begin{rem}
 Under scaling the metric,
 \[
-g \mapsto c g
+g \mapsto c^2 g
 \]
 we have
 \begin{align*}
-\mu &\mapsto c^{n/2} \mu \\
-\Sc &\mapsto c^{-1} \Sc \\
-\einsteinhilbert &\mapsto c^{(n-2)/2} \einsteinhilbert.
+\mu &\mapsto c^n \mu \\
+\Sc &\mapsto c^{-2} \Sc \\
+\einsteinhilbert &\mapsto c^{n-2} \einsteinhilbert \\
+\sigma &\mapsto c^{n-1} \sigma \\
+\Sc_{\bdry{\Omega_0}} &\mapsto c^{-2} \Sc_{\bdry{\Omega_0}}.
 \end{align*}
 In particular
 \[
-\abs{M_t}^{-1/n} \einsteinhilbert \mapsto c^{(n-3)/2} \abs{M_t}^{-1/n} \einsteinhilbert
+\abs{M_t}^{-(n-2)/n} \einsteinhilbert \mapsto c^{-(n-2)} \abs{M_t}^{(n-2)/n} c^{n-2}\einsteinhilbert
 \]
-is not scale invariant but does scale exactly as the other terms in the differential inequality from the Comparison Thereom \ref{thm:comparison} (see the proof below). In particular, for \(n=2\), \(\einsteinhilbert\) is already scale invariant and equal to \(8\pi\chi(M)\) by Gauss-Bonnet and the differential inequality scales like \(\abs{M_t}^{-1/2}\). The case \(n=3\) is particularly special in that it is in fact scale invariant!
+and
+\[
+\abs{M_t}^{-(n-3)/n} \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \mapsto c^{-(n-3)} \abs{M_t}^{-(n-3)/n} \int_{\bdry{\Omega_0}} c^{-2} R_{\bdry{\Omega_0}} c^{n-1}\sigma.
+\]
+are scale invariant. The left hand side of the differential inequality from the Comparison Thereom \ref{thm:comparison} is manifestly scale invariant, and the scaling just described shows the right hand side is also scale invariant. The case \(n = 3\) is particularly special in that the coefficients \(\abs{M_t}^{-(n-2)/n} \einsteinhilbert\) and \(\abs{M_t}^{-(n-3)/n}\) are already scale invaraint while \(\int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma = 4\pi \chi(M_t)\) is a topological (hence also scale) invariant.
 \end{rem}
 
 \begin{proof}
@@ -379,12 +389,13 @@ Then we have
 \begin{equation}
 \label{eq:scaled_diff_ineq}
 \begin{split}
-\partial_t \varphi - \varphi^2 \varphi'' - \varphi(\varphi')^2 &= \abs{M_t}^{(n-3)/n}\left[ \partial_{\tau} \bar{\varphi} -\bar{\varphi}^2 \bar{\varphi}'' - \bar{\varphi}(\bar{\varphi}')^2\right] \\
-&\quad + \left(\frac{n-1}{n} \bar{\varphi} - y\bar{\varphi}'\right) \abs{M_t}^{-1/n} \einsteinhilbert(M_t).
+\partial_t \varphi - \varphi^2 \varphi'' - \varphi(\varphi')^2 &= \abs{M_t}^{(n-3)/n}\left[ \partial_{\tau} \bar{\varphi} -\bar{\varphi}^2 \bar{\varphi}'' - \bar{\varphi}(\bar{\varphi}')^2\right] + \abs{M_t}^{-1/n} \einsteinhilbert(M_t) \left(\frac{n-1}{n} \bar{\varphi} - y\bar{\varphi}'\right) \\
+&\leq \einsteinhilbert(\Omega_0) \abs{M_t}^{-1/n} \bar{\varphi}' - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \\
+&= \einsteinhilbert(\Omega_0) \varphi' - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma.
 \end{split}
 \end{equation}
-Note in particular, by the remark after the theorem statement, the entire equation \eqref{eq:scaled_diff_ineq} scales like \(\abs{M_t}^{(n-3)/n}\).
+with the inequality coming from differential inequality in the hypotheses of the theorem.
 
-The proof now follows by the maximum principle, since \(I\) is a viscosity sub-solution whilst \(\varphi\) is a viscosity super-solution by the hypotheses of the theorem.
+The proof now follows by the maximum principle, since equation \eqref{eq:viscosity_ricciflow} gives \(I\) is a viscosity sub-solution whilst equation \eqref{eq:scaled_diff_ineq} gives \(\varphi\) is a viscosity super-solution of the same equation.
 \end{proof}
 \end{document}
