@@ -22,7 +22,7 @@
 \section{Introduction}
 \label{sec:intro}
 
-Let \(M^3\) be a smooth, three-dimensional manifold and \(g = g_t\) a smooth one-parameter family of metrics evolving by the Ricci flow:
+Let \(M^n\) be a smooth, \(n\)-dimensional manifold and \(g = g_t\) a smooth, one-parameter family of metrics evolving by the Ricci flow:
 \begin{equation}
 \label{eq:rf}
 \partial_t g = -2 \ric.
@@ -30,9 +30,9 @@ Let \(M^3\) be a smooth, three-dimensional manifold and \(g = g_t\) a smooth one
 
 The Isoperimetric Profile is defined by,
 \[
-I_t (x) = I(x, t) = \inf\{\abs{\bdry{\Omega}}_{g_t} : \abs{\Omega}_{g_t} = x\}
+I_t (x) = I(x, t) := \inf\{\abs{\bdry{\Omega}}_{g_t} : \abs{\Omega}_{g_t} = x\}
 \]
-and the infimum ranges over all compactly contained, connected, open sets \(\Omega\) with smooth boundary. An isoperimetric domain is such a set \(\Omega\) satisfying \(I(\abs{\Omega}_{g_t}, t) = \abs{\bdry{\Omega_0}}_{g_t}\).
+and the infimum ranges over all compactly contained, open sets \(\Omega\) with smooth boundary. An isoperimetric domain is such a set \(\Omega\) satisfying \(I(\abs{\Omega}_{g_t}, t) = \abs{\bdry{\Omega_0}}_{g_t}\).
 
 \section{A Differential Inequality For The Isoperimetric Profile}
 \label{sec:iso_diff_ineq}
@@ -93,7 +93,7 @@ where \(g^{\ast}\) is the dual metric defined by \(g^{\ast} (\alpha, \beta) = g(
 
 For the time variation of \(\abs{\bdry{\Omega_0}}\) we use the definition,
 \[
-\sigma = \intprod_{\nu} \mu = \Tr \nu \otimes \mu.
+\sigma = \iota_{\nu} \mu = \Tr \nu \otimes \mu.
 \]
 Then,
 \begin{equation}
@@ -128,7 +128,7 @@ g(\partial_t \nu, \nu) = -\speed(\nu, \nu).
 Thus we obtain,
 \begin{equation}
 \label{eq:dtsigma1}
-\Tr(\partial_t \nu \otimes \mu) = \intprod_{\partial_t\nu} \mu =  g(\partial_t \nu, \nu) \sigma = -\speed(\nu, \nu) \sigma.
+\Tr(\partial_t \nu \otimes \mu) = \iota_{\partial_t\nu} \mu =  g(\partial_t \nu, \nu) \sigma = -\speed(\nu, \nu) \sigma.
 \end{equation}
 
 Substitution of \eqref{eq:dtsigma1} and \eqref{eq:dtsigma2} into \eqref{eq:dtsigma} and differentiating under the integral sign again completes the proof.
@@ -306,7 +306,7 @@ Now we would like to come up with a comparison principle for the isoperimetric p
 \[
 \{(x, t) : 0 < x < \abs{M_t}, 0 \leq t < T\}
 \]
-where both \(\abs{M_t}\) and \(T\) depend on the particular one-parameter family of metrics, \(g_t\) under consideration. We overcome this by an appropriate change of \emph{independent variables.} Another difficulty is that the \emph{dependent variable} \(I\) has uncontrolled range, which we overcome by the scaling of the profile. The choice for the scaling is determined by the scaling of the profile itself, while the change of time parameter is chosen to obtain a PDE in the transformed variables.
+where both \(\abs{M_t}\) and \(T\) depend on the particular one-parameter family of metrics, \(g_t\) under consideration. We overcome this by an appropriate change of \emph{independent variables.} Another difficulty is that the \emph{dependent variable} \(I\) has uncontrolled range, which we overcome by the scaling of the profile. The choice for the scaling is determined by the scaling of the profile itself, while the change of time parameter is chosen to math the spatial change of variables to produce a parabolic rescaling.
 
 \begin{thm}[Comparison Theorem]
 \label{thm:comparison}
