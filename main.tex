@@ -34,7 +34,19 @@ I_t (x) = I(x, t) := \inf\{\abs{\bdry{\Omega}}_{g_t} : \abs{\Omega}_{g_t} = x\}
 \]
 and the infimum ranges over all compactly contained, open sets \(\Omega\) with smooth boundary. An isoperimetric domain is such a set \(\Omega\) satisfying \(I(\abs{\Omega}_{g_t}, t) = \abs{\bdry{\Omega_0}}_{g_t}\).
 
-\section{A Differential Inequality For The Isoperimetric Profile}
+\section{The Isoperimetric Profile}
+
+In this section we discuss some generalities related to the isoperimetric profile.
+
+\subsection{Small Scale Asymptotics}
+
+\begin{itemize}
+\item First order asymptotics are easy. See Ni and Wang ref. The constant is universal, dimension dependent essentially since manifolds are locally Euclidean.
+\item Use Alfred Gray's formulae for volume of small geodesic balls to get upper bound.
+\item Lower bound is rather more subtle. But one would expect the second order terms just come from constant curvature geometry.
+\end{itemize}
+
+\subsection{A Differential Inequality For The Isoperimetric Profile}
 \label{sec:iso_diff_ineq}
 
 In this section, we begin by deriving the general formulae for metrics evolving according to
@@ -145,6 +157,12 @@ which along with \(g(\partial_t \nu, \nu) = - \speed(\nu, \nu)\) completely dete
 \]
 \end{rem}
 
+\subsection{Barrier Equation}
+
+\begin{itemize}
+\item Change of variables obtains an upper barrier - much stronger in general than viscosity. Can be used to derive the viscosity equation.
+\end{itemize}
+
 \subsection{Viscosity Equation}
 \label{subsec:iso_diff_ineq_viscosity}
 
@@ -254,7 +272,14 @@ In three dimensions, \(\bdry{\Omega_0}\) is two dimensional, hence \(R_{\bdry{\O
 where \(\chi(\bdry{\Omega_0})\) denotes the Euler characteristic and we used that \(\bdry{\bdry{\Omega_0}} = \emptyset\). The three dimensional result now also follows from substitution in into the second equality in \Cref{thm:general_viscosity}.
 \end{proof}
 
-\section{The Ricci Flow}
+\subsection{Positivity, Concavity And Topology Of Isoperimetric Domains}
+
+\begin{itemize}
+\item Positive Ricci curvature gives concavity of the profile
+\item Concavity of the profile gives connectedness of isoperimetric domains
+\end{itemize}
+
+\section{The Isoperimetric Profile Under The Ricci Flow}
 \label{subsec:flows_ricci}
 
 The Ricci flow is the case where $\speed = -\ric$, and so $\Tr_g \speed = -R$. The viscosity equation in \Cref{thm:general_viscosity} looks quite appealing in this case:
@@ -398,4 +423,51 @@ with the inequality coming from differential inequality in the hypotheses of the
 
 The proof now follows by the maximum principle, since equation \eqref{eq:viscosity_ricciflow} gives \(I\) is a viscosity sub-solution whilst equation \eqref{eq:scaled_diff_ineq} gives \(\varphi\) is a viscosity super-solution of the same equation.
 \end{proof}
+\section{Construction Of Comparison And Geometry Bounds}
+
+The aim is to obtain convergence to a contant sectional curvature manifold, i.e. a space form. To this end, we begin by studying the isoperimetric profile of the round sphere. Then we construct our comparison function by linearising around the sphere.
+
+\subsection{The Isoperimetric Profile Of The Round Sphere}
+
+\begin{itemize}
+\item The isoperimetric inequality on the sphere says isoperimetric regions are spherical caps.
+\item In dimension \(2\) and explicit expression is easily obtained by iverting the volume of a sphereical cap as a function of the angle.
+\item In higher dimensions, this seems somewhat tricky to do explicitly. But mabye working implicitly will be enough.
+\item The Einstein-Hilbert functional on spherical caps is easily obtained, as is the mean curvature.
+\item Then we try to write the Einstein-Hilbert functional as a concave function, \(f_0\) of \(I'\). \textbf{This is key!}
+\end{itemize}
+
+\subsection{Comparison Function}
+
+\begin{itemize}
+\item The first main thing is we need \(\einsteinhilbert(\Omega_0) \geq f_0(I')\) where \(f_0\) is the sphere function. That is, on the the round sphere we have equality.
+\item Concavity of \(f_0\) allows us to discard the error term as a non-negative term when linearising around the sphere profile.
+\item We should also compare the \(\einsteinhilbert(M)\) terms with the sphere.
+\item Then I think we obtain a linear differential inequality which can be solved more or less explicitly
+\item Either that, or we change variables by substituting the sphere profile and seeking a simillarity solution.
+\end{itemize}
+
+\section{Convergence To Constant Curvature}
+
+\subsection{Curvature Bounds}
+
+\begin{itemize}
+\item The asymptotics of the profile should give the second order term is curvature which is controlled (from the comparison theorem) by the second order terms of the comparison function.
+\end{itemize}
+
+\subsection{Isoperimetric Constant Bounds}
+
+\begin{itemize}
+\item All we need here is that a lower bound of the profile is preserved, which imediately gives a bound on the isoperimetric constant.
+\item This constant is also the Sobolev constant which we use in the inerpolation inequalities used to obtain convergence.
+\end{itemize}
+
+
+\subsection{Convergence}
+
+\begin{itemize}
+\item The proof should now follow as in the two-dimensional case via interpolation which is aided by Isoperimetric constant control.
+\end{itemize}
+
+\subsection{}
 \end{document}
