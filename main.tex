@@ -448,6 +448,131 @@ The aim is to obtain convergence to a contant sectional curvature manifold, i.e.
 \item Then we try to write the Einstein-Hilbert functional as a concave function, \(f_0\) of \(I'\). \textbf{This is key!}
 \end{itemize}
 
+In this section, we describe the isoperimetric profile of the round sphere , \(\S^n(r)\) of radius \(r > 0\). This is the expected limit of Riemannian metrics evolving by Ricci flow in positive curvature (or at least on the Riemannian universal cover).
+
+The isoperimetric inequality on the sphere states that for any open set \(\Omega \subset \S^n\) with smooth boundary, we have
+\[
+\abs{\bdry{\Omega}} \geq \abs{\bdry{B^n}}
+\]
+where \(B^n \subseteq \S^n\) is a geodesic ball (i.e. a spherical cap) with volume, \(\abs{B^n} = \abs{\Omega}\). Equality occurs if and only if \(\Omega = B^n\). Thus we have
+\[
+I_{\S^n} (x) = \abs{\bdry{B^n_x}}
+\]
+where \(\abs{B^n_x} = x\).
+
+To understand the profile more explicitly, it is convenient to describe the round sphere of radius \(r\), \(\S^n(r)\) in polar coordinates:
+\[
+(\S^n\backslash \{\pm p_0\}, g_{\text{round}(n)}) = (\S^{n-1} \times (0, \pi), r^2 \sin^2 \varphi g_{\text{round}(n-1)} + r^2 d\varphi \otimes d\varphi)
+\]
+where \(\pm p\) are antipodal points, \(g_{\text{round}(m)}\) denotes the round metric on the \(m\)-dimensional sphere and \(\varphi \in (0, \pi)\).
+
+An open spherical cap of radius \(\sin \varphi\) is then the set
+\[
+B^n(\varphi) = \S^{n-1} \times [0, \varphi)
+\]
+with boundary
+\[
+\bdry{B^n(\varphi)} = \S^{n-1} \times \{\varphi\}.
+\]
+
+Then we have
+\begin{align*}
+V_n(\varphi) &:= \abs{B^n(\varphi)} = A_{n-1} r^n \int_0^{\varphi} \sin^{n-1} (\varphi) d\varphi \\
+A_n(\varphi) &:= \abs{\bdry{B^n(\varphi)}} = A_{n-1} r^{n-1} \sin^{n-1} (\varphi)
+\end{align*}
+where \(A_{n-1} = A_{n}(\pi/2)\) is the \(n-1\)-dimensional volume of the unit, round sphere \(\S^{n-1}(1)\).
+
+Note that
+\[
+\partial_{\varphi} V_n(\varphi) = A_{n-1} r^n \sin^{n-1} \varphi > 0
+\]
+for \(\varphi \in (0, \pi)\) and hence the function \(\varphi \mapsto V_n(\varphi)\) is smoothly invertible. Thus we may write
+\[
+\varphi = V_n^{-1}(x)
+\]
+and hence the isoperimetric profile of \(\S^n(r)\) is given by
+\[
+I_{\S^n(r)} (x) = A_{n-1} r^{n-1} \sin^{n-1} (V_n^{-1}(x)).
+\]
+
+In two dimensions, we have
+\begin{align*}
+V_2(\varphi) &:= \abs{B^2(\varphi)} = 2\pi r^2(1-\cos\varphi) \\
+A_2(\varphi) &= \abs{\bdry{B^2(\varphi)}} = 2\pi r \sin (\varphi).
+\end{align*}
+Then
+\[
+V_2^{-1}(x) = \arccos\left(1 - \frac{x}{2\pi r^2} \right)
+\]
+and
+\[
+\begin{split}
+I(x) &= 2\pi r \sin(\Phi_2(x)) = 2\pi r \sqrt{1 - \cos^2\left(\arccos\left(1 - \frac{x}{2\pi r^2} \right)\right)} \\
+&= \sqrt{4\pi x - \frac{1}{r^2} x^2} \\
+&= \sqrt{4\pi x - K_2 x^2}
+\end{split}
+\]
+where \(K_2 = r^{-2}\) is the Gauss curvature of \(\S^2(r)\).
+
+In higher dimensions, it becomes somewhat more difficult to explicitly invert \(V_n\). For example, when \(n = 3\) we have
+\[
+V_3(\varphi) = 4\pi r^3\left(\frac{1}{2} \varphi - \frac{1}{4}\sin(2 \varphi)\right).
+\]
+Thus we work implicitly.
+
+The other important quantity we need to understand is the Einstein-Hilbert action over isoperimetric domains. On \(\S^n(r)\), the scalar curvature is constant,
+\[
+\Sc = \frac{n(n-1)}{r^2}
+\]
+and hence
+\[
+\begin{split}
+\einsteinhilbert(\varphi) &:= \einsteinhilbert(B^n(\varphi)) = \frac{n(n-1)}{r^2} \abs{B^n(\varphi)} = \frac{n(n-1)}{r^2} V_n(\varphi) \\
+&= n(n-1) A_{n-1} r^{n-2} \int_0^{\varphi} \sin^{n-1} \varphi d\varphi.
+\end{split}
+\]
+We also have
+\[
+\abs{\S^n(r)} = V_n(\pi) = r^n A_{n+1} = r^n \abs{\S^n(1)}
+\]
+so that
+\[
+\abs{\S^n(r)}^{-(n-2)/n} \einsteinhilbert(\varphi) = n(n-1)A_{n+1}^{-(n-2)/n} A_n \int_0^{\varphi} \sin^{n-1} \varphi d\varphi.
+\]
+Let us just remark in passing that this confirms the scale invariance describe in remark \ref{rem:scaling}.
+
+Now the \emph{key idea} is that we may write \(\abs{\S^n(r)}^{-(n-2)/n} \einsteinhilbert(\varphi)\) as a function of \(x\), \(I\) and \(I'\). For this we have
+\begin{align*}
+x &= V_n(\varphi) = A_{n-1} r^n \int_0^{\varphi} \sin^{n-1} (\varphi) d\varphi \\
+I &= A_n(\varphi) = A_{n-1} r^{n-1} \sin^{n-1} \varphi \\
+I' &= A_{n-1} r^{n-1} (n-1) \sin^{n-2} (\varphi) \cos(\varphi).
+\end{align*}
+
+Note in particular that
+\[
+-\frac{I'}{I} = -(n-1) \cot \varphi = -(n-1) H_0
+\]
+is the mean curvature along \(\bdry{B^n(\varphi)}\) as in the first variation formula.
+
+In two dimensions,
+\[
+\abs{\S^n(r)}^{-(n-2)/n} \einsteinhilbert(\varphi) = 4\pi (1 - \cos\varphi).
+\]
+and
+\begin{align*}
+x &= 2\pi r^2 (1-\cos\varphi) \\
+I &= 2\pi r \sin \varphi \\
+I' &= 2\pi r \cos(\varphi).
+\end{align*}
+
+Then
+\[
+\varphi = \arccos\left(\frac{1}{2\pi r} I'\right)
+\]
+and hence
+\[
+\abs{\S^n(r)}^{-(n-2)/n} \einsteinhilbert(\varphi) = 4\pi \left[1 - \frac{1}{2\pi r} I'\right]
+\]
 \subsection{Comparison Function}
 
 \begin{itemize}
