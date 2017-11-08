@@ -174,14 +174,14 @@ The isoperimetric profile is a viscosity super-solution of,
 \begin{split}
 \partial_t I &\geq I^2 I'' +  \int_{\bdry{\Omega_0}} \left(\abs{\sff}^2 + \ric(\nu, \nu)\right) \sigma  - I'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu)\right) \sigma \\
 &= I^2 I'' +  (I')^2 I + \int_{\bdry{\Omega_0}} \left(Tr_g \speed + R_{\Omega_0} - \speed(\nu, \nu) - \ric(\nu)\right) \sigma \\
-&\quad - \left(I'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right) .
+&\quad - \left(I'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right),
 \end{split}
 \]
 where \(\Omega_0 = \Omega_0(x_0, t_0)\) is an isoperimetric domain at \((x_0, t_0)\).
 \end{thm}
 
 \begin{rem}
-At this level of generality, we cannot say anything more. The first line of each equation depends on the speed \(\speed\) and it's relation to the ambient curvature along an (essentially unknown) isoperimetric domain. To go further, we must specify the speed which we do later when we specialise to the Ricci flow. More difficult to deal with is the second line, which also depends on the speed \(\speed\) but cannot be balanced against the other terms unless we can apply some (generally topological) argument to rewrite it as a boundary integral. We also address this issue below in dimensions two and three.
+At this level of generality, we cannot say anything more. The first line of each equation depends on the speed \(\speed\), and its relation to the ambient curvature along an (essentially unknown) isoperimetric domain. To go further, we must specify the speed which we do later when we specialise to the Ricci flow. More difficult to deal with is the second line, which also depends on the speed \(\speed\) but cannot be balanced against the other terms unless we can apply some (generally topological) argument to rewrite it as a boundary integral. We also address this issue below in dimensions two and three.
 \end{rem}
 
 \begin{proof}
@@ -189,7 +189,7 @@ Let \(\phi \leq_{x=x_0, t\leq t_0} I\) be smooth, lower supporting function at \
 \[
 \Phi(u, t) = \abs{\bdry{\Omega_u}}_t - \phi(\abs{\Omega_u}_t, t).
 \]
-Then \(\Phi\) is smooth and since \(\abs{\bdry{\Omega_u}}_t \geq I(\abs{\Omega_u}_t, t) \geq \phi(\abs{\Omega_u}_t, t)\), we have \(\Phi \geq 0\) for \(u \in (-\epsilon, \epsilon)\) and \(t \leq t_0\) along with \(\Phi(0, t_0) = 0\). Throughout this proof we tacitly make use of the variation formulae given in \Cref{lem:spatial_variation} and \Cref{lem:time_variation}.
+Then \(\Phi\) is smooth and since \(\abs{\bdry{\Omega_u}}_t \geq I(\abs{\Omega_u}_t, t) \geq \phi(\abs{\Omega_u}_t, t)\), we have \(\Phi \geq 0\) for \(u \in (-\epsilon, \epsilon)\) and \(t \leq t_0\) along with \(\Phi(0, t_0) = 0\). Throughout this proof we tacitly make use of the variation formula given in \Cref{lem:spatial_variation} and \Cref{lem:time_variation}.
 
 At \((0, t_0)\), the first variation in \(u\) of \(\Phi\) vanishes giving,
 \[
@@ -209,7 +209,7 @@ Also, at \((0, t_0)\), the time variation is non-positive, and the second spatia
 \end{split}
 \]
 
-From the variation formulae, and using equation \eqref{eq:viscosity_identities} we obtain
+From the variation formula, and using equation \eqref{eq:viscosity_identities} we obtain
 \begin{align*}
 (\partial_t - \partial_u^2) \abs{\bdry{\Omega}} &= \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu) + \abs{\sff}^2 + \ric(\nu, \nu)\right) \sigma - (\phi')^2 \phi, \\
 (\partial_t - \partial_u^2) \abs{\Omega_u} &= \int_{\Omega_0} \Tr_g \speed \mu - \phi \phi', \\
@@ -279,7 +279,7 @@ where \(\chi(\bdry{\Omega_0})\) denotes the Euler characteristic and we used tha
 \item Positive Ricci curvature gives concavity of the profile
 \item Concavity of the profile gives connectedness of isoperimetric domains
 \item These follow from the barrier inequality, which is already in \cite{MR875084} so probably is not needed to be proven here. Definitely needs to be stated though!
-\item This allows us to conclude that \(\bdry{\Omega}\) is connected (probably need to work manifolds of positive Ricci with universal cover the sphere?) and hence \(\chi(\bdry{\Omega}) \geq 2\pi \chi(\S^2)\). Otherwise if there are multiple components to the boundary we don't get this bound.
+\item This allows us to conclude that \(\bdry{\Omega}\) is connected (probably need to work manifolds of positive Ricci with universal cover the sphere?) and hence \(\chi(\bdry{\Omega}) \geq 2\pi \chi(\S^2)\). Otherwise, if there are multiple components to the boundary we don't get this bound.
 \item The bound is good because this is exactly equality on the round sphere - that is, \(\Omega_0\) is a spherical cap with \(\bdry{\Omega} = \S^2\).
 \end{itemize}
 
@@ -291,7 +291,7 @@ The Ricci flow is the case where $\speed = -\ric$, and so $\Tr_g \speed = -R$. T
 \label{eq:viscosity_ricciflow}
 \begin{split}
 \partial_t I &\geq I^2I'' + I(I')^2 + I'\int_{\Omega_0} R \mu - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \\
-&= I^2I'' + I(I')^2 + \einsteinhilbert(\Omega_0) I - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma
+&= I^2I'' + I(I')^2 + \einsteinhilbert(\Omega_0) I' - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma
 \end{split}
 \end{equation}
 where \(\einsteinhilbert({\Omega_0}) = \int_{\Omega_0} \Sc \mu\) is the Einstein-Hilbert functional.
@@ -304,14 +304,14 @@ Using \Cref{cor:low_dim_general_viscosity}, in two dimensions this becomes,
 \]
 After an application of the Gauss-Bonnet theorem, the last term becomes,
 \[
-I'\int_{\Omega_0} R \mu = 4\pi\chi(\Omega_0)I' - 2\int_{\bdry{\Omega_0}} H \sigma = 4\pi\chi(\Omega_0)I'- 2 I (I')^2
+I'\int_{\Omega_0} R \mu = 4\pi\chi(\Omega_0)I' - 2\int_{\bdry{\Omega_0}} H \sigma I' = 4\pi\chi(\Omega_0)I'- 2 I (I')^2
 \]
 and so we get,
 \begin{equation}
 \label{eq:2d_viscosity_ricciflow}
 \begin{split}
 \partial_t I &\geq I^2I'' - I(I')^2 + 4\pi\chi(\Omega_0)I' \\
-&= I^3 \Delta \ln I + 4\pi\chi(\Omega_0)I'.
+&= I^3 (\ln I)'' + 4\pi\chi(\Omega_0)I'.
 \end{split}
 \end{equation}
 Thus we arrive at a rather more usable differential inequality with the only unknown term coming from the topology of isoperimetric domains, which depends on \(x\). Rather complete results for the closed, two-dimensional case are described in \cite{Bryan:/2016,AndrewsBryan:/2010}.
@@ -325,7 +325,7 @@ Using \Cref{cor:low_dim_general_viscosity}, in three dimensions we have
 \end{equation}
 
 
-Compared to the two-dimensional case, the second to last term presents some difficulties since it cannot (in general) be written purely in terms of topological invariants. On the other hand, it is the Einstien-Hilbert functional on an isoperimetric domain and thus has nice properties, especially in relation to the Ricci flow that we may be able to exploit.
+Compared to the two-dimensional case, the second to last term presents some difficulties since it cannot (in general) be written purely in terms of topological invariants. On the other hand, it is the Einstein-Hilbert functional on an isoperimetric domain and thus has nice properties, especially in relation to the Ricci flow that we may be able to exploit.
 
 
 \section{Comparison Principle}
@@ -343,7 +343,7 @@ Let \(\bar{\varphi} : (y, \tau) \in [0, 1] \times [0, \infty) \to \R\) satisfy
 \[
 \begin{split}
 \partial_{\tau} \bar{\varphi} - \bar{\varphi}^2 \bar{\varphi}'' - \bar{\varphi}(\bar{\varphi}')^2 &\leq -\abs{M_t}^{-\tfrac{n-2}{n}} \left[\einsteinhilbert(M_t)\left(\frac{n-1}{n} \bar{\varphi} - y \bar{\varphi}'\right) + \einsteinhilbert(\Omega_0)\bar{\varphi}'\right] \\
-&- \abs{M_t}^{-\tfrac{n-3}{n}}\int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma.
+&- \abs{M_t}^{-\tfrac{n-3}{n}}\int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma
 \end{split}
 \]
 and define
@@ -375,13 +375,13 @@ and
 \[
 \abs{M_t}^{-(n-3)/n} \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \mapsto c^{-(n-3)} \abs{M_t}^{-(n-3)/n} \int_{\bdry{\Omega_0}} c^{-2} R_{\bdry{\Omega_0}} c^{n-1}\sigma.
 \]
-are scale invariant. The left hand side of the differential inequality from the Comparison Thereom \ref{thm:comparison} is manifestly scale invariant, and the scaling just described shows the right hand side is also scale invariant.
+are scale invariant. The left hand side of the differential inequality from the Comparison Theorem \ref{thm:comparison} is manifestly scale invariant, and the scaling just described shows the right hand side is also scale invariant.
 
 The cases \(n = 2\) and \(n = 3\) are particularly special.
 
 For \(n=2\), the boundary term \(\int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma = 0\), \(\abs{M_t}^{-(n-2)/n} = 1\) is already scale invariant, and \(\einsteinhilbert + \int_{\bdry{\empty}} \kappa ds = 4\pi \chi\) is a topological (hence also scale) invariant.
 
-For \(n=3\), the coefficients \(\abs{M_t}^{-(n-2)/n} \einsteinhilbert\) and \(\abs{M_t}^{-(n-3)/n}\) are already scale invaraint while \(\int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma = 4\pi \chi(M_t)\) is a topological (hence also scale) invariant.
+For \(n=3\), the coefficients \(\abs{M_t}^{-(n-2)/n} \einsteinhilbert\) and \(\abs{M_t}^{-(n-3)/n}\) are already scale invariant while \(\int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma = 4\pi \chi(M_t)\) is a topological (hence also scale) invariant.
 \end{rem}
 
 \begin{proof}
@@ -436,14 +436,14 @@ The proof now follows by the maximum principle, since equation \eqref{eq:viscosi
 \end{proof}
 \section{Construction Of Comparison And Geometry Bounds}
 
-The aim is to obtain convergence to a contant sectional curvature manifold, i.e. a space form. To this end, we begin by studying the isoperimetric profile of the round sphere. Then we construct our comparison function by linearising around the sphere.
+The aim is to obtain convergence to a constant sectional curvature manifold, i.e., a space form. To this end, we begin by studying the isoperimetric profile of the round sphere. Then we construct our comparison function by linearising around the sphere.
 
 \subsection{The Isoperimetric Profile Of The Round Sphere}
 
 \begin{itemize}
 \item The isoperimetric inequality on the sphere says isoperimetric regions are spherical caps.
-\item In dimension \(2\) and explicit expression is easily obtained by iverting the volume of a sphereical cap as a function of the angle.
-\item In higher dimensions, this seems somewhat tricky to do explicitly. But mabye working implicitly will be enough.
+\item In dimension \(2\) an explicit expression is easily obtained by inverting the volume of a spherical cap as a function of the angle.
+\item In higher dimensions, this seems somewhat tricky to do explicitly. But maybe working implicitly will be enough.
 \item The Einstein-Hilbert functional on spherical caps is easily obtained, as is the mean curvature.
 \item Then we try to write the Einstein-Hilbert functional as a concave function, \(f_0\) of \(I'\). \textbf{This is key!}
 \end{itemize}
@@ -545,12 +545,12 @@ Now the \emph{key idea} is that we may write \(\abs{\S^n(r)}^{-(n-2)/n} \einstei
 \begin{align*}
 x &= V_n(\varphi) = A_{n-1} r^n \int_0^{\varphi} \sin^{n-1} (\varphi) d\varphi \\
 I &= A_n(\varphi) = A_{n-1} r^{n-1} \sin^{n-1} \varphi \\
-I' &= A_{n-1} r^{n-1} (n-1) \sin^{n-2} (\varphi) \cos(\varphi).
+I' &= A_{n-1} r^{n-1} (n-1) \sin^{n-2} (\varphi) \cos(\varphi)\frac{d\varphi}{dx}.
 \end{align*}
 
 Note in particular that
 \[
--\frac{I'}{I} = -(n-1) \cot \varphi = -(n-1) H_0
+I' = (n-1) \cot \varphi = (n-1) H_0
 \]
 is the mean curvature along \(\bdry{B^n(\varphi)}\) as in the first variation formula.
 
@@ -561,17 +561,27 @@ In two dimensions,
 and
 \begin{align*}
 x &= 2\pi r^2 (1-\cos\varphi) \\
-I &= 2\pi r \sin \varphi \\
-I' &= 2\pi r \cos(\varphi).
+I &= 2\pi r \sin \varphi.
 \end{align*}
+To compute \(I'\) we use that
+\[
+\partial_{\varphi} V_n = A_{n-1} r^n \sin^{n-1} \varphi = I
+\]
+and that \(x = V_n(\varphi)\), hence
+\[
+I' = \frac{1}{I} \partial_{\varphi} I = \frac{1}{A_{n-1} r^n \sin^{n-1} \varphi} A_{n-1} r^{n-1} (n-1) \sin^{n-2} \varphi \cos \varphi = (n-1) \frac{1}{r} \cot \varphi.
+\]
 
 Then
 \[
-\varphi = \arccos\left(\frac{1}{2\pi r} I'\right)
+\varphi = \operatorname{arccot}\left(\frac{r}{n-1} I'\right)
 \]
 and hence
 \[
-\abs{\S^n(r)}^{-(n-2)/n} \einsteinhilbert(\varphi) = 4\pi \left[1 - \frac{1}{2\pi r} I'\right]
+\begin{split}
+\abs{\S^n(r)}^{-(n-2)/n} \einsteinhilbert(\varphi) &= 4\pi \left[1 - \cos\left(\operatorname{arccot}\left(\frac{r}{n-1} I'\right)\right)\right] \\
+&= 4\pi \left[1 - \frac{r}{n-1} I' \left((\frac{r}{n-1} I')^2 + 1\right)^{-1/2}\right]
+\end{split}
 \]
 \subsection{Comparison Function}
 
@@ -580,7 +590,7 @@ and hence
 \item Concavity of \(f_0\) allows us to discard the error term as a non-negative term when linearising around the sphere profile.
 \item We should also compare the \(\einsteinhilbert(M)\) terms with the sphere.
 \item Then I think we obtain a linear differential inequality which can be solved more or less explicitly
-\item Either that, or we change variables by substituting the sphere profile and seeking a simillarity solution.
+\item Either that, or we change variables by substituting the sphere profile and seeking a similarity solution.
 \end{itemize}
 
 \section{Convergence To Constant Curvature}
@@ -594,8 +604,8 @@ and hence
 \subsection{Isoperimetric Constant Bounds}
 
 \begin{itemize}
-\item All we need here is that a lower bound of the profile is preserved, which imediately gives a bound on the isoperimetric constant.
-\item This constant is also the Sobolev constant which we use in the inerpolation inequalities used to obtain convergence.
+\item All we need here is that a lower bound of the profile is preserved, which immediately gives a bound on the isoperimetric constant.
+\item This constant is also the Sobolev constant which we use in the interpolation inequalities used to obtain convergence.
 \end{itemize}
 
 
