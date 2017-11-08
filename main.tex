@@ -477,14 +477,14 @@ with boundary
 
 Then we have
 \begin{align*}
-V_n(\varphi) &:= \abs{B^n(\varphi)} = A_{n-1} r^n \int_0^{\varphi} \sin^{n-1} (\varphi) d\varphi \\
-A_n(\varphi) &:= \abs{\bdry{B^n(\varphi)}} = A_{n-1} r^{n-1} \sin^{n-1} (\varphi)
+V_n(\varphi) &:= \abs{B^n(\varphi)} = \sigma_{n-1} r^n \int_0^{\varphi} \sin^{n-1} (\varphi) d\varphi \\
+A_n(\varphi) &:= \abs{\bdry{B^n(\varphi)}} = \sigma_{n-1} r^{n-1} \sin^{n-1} (\varphi)
 \end{align*}
-where \(A_{n-1} = A_{n}(\pi/2)\) is the \(n-1\)-dimensional volume of the unit, round sphere \(\S^{n-1}(1)\).
+where \(\sigma_{n-1}\) is the \(n-1\)-dimensional volume of the unit, round sphere \(\S^{n-1}(1)\).
 
 Note that
 \[
-\partial_{\varphi} V_n(\varphi) = A_{n-1} r^n \sin^{n-1} \varphi > 0
+\partial_{\varphi} V_n(\varphi) = \sigma_{n-1} r^n \sin^{n-1} \varphi > 0
 \]
 for \(\varphi \in (0, \pi)\) and hence the function \(\varphi \mapsto V_n(\varphi)\) is smoothly invertible. Thus we may write
 \[
@@ -492,7 +492,7 @@ for \(\varphi \in (0, \pi)\) and hence the function \(\varphi \mapsto V_n(\varph
 \]
 and hence the isoperimetric profile of \(\S^n(r)\) is given by
 \[
-I_{\S^n(r)} (x) = A_{n-1} r^{n-1} \sin^{n-1} (V_n^{-1}(x)).
+I_{\S^n(r)} (x) = \sigma_{n-1} r^{n-1} \sin^{n-1} (V_n^{-1}(x)).
 \]
 
 In two dimensions, we have
@@ -507,7 +507,7 @@ V_2^{-1}(x) = \arccos\left(1 - \frac{x}{2\pi r^2} \right)
 and
 \[
 \begin{split}
-I(x) &= 2\pi r \sin(\Phi_2(x)) = 2\pi r \sqrt{1 - \cos^2\left(\arccos\left(1 - \frac{x}{2\pi r^2} \right)\right)} \\
+I(x) &= 2\pi r \sin(V_2^{-1}(x)) = 2\pi r \sqrt{1 - \cos^2\left(\arccos\left(1 - \frac{x}{2\pi r^2} \right)\right)} \\
 &= \sqrt{4\pi x - \frac{1}{r^2} x^2} \\
 &= \sqrt{4\pi x - K_2 x^2}
 \end{split}
@@ -528,60 +528,89 @@ and hence
 \[
 \begin{split}
 \einsteinhilbert(\varphi) &:= \einsteinhilbert(B^n(\varphi)) = \frac{n(n-1)}{r^2} \abs{B^n(\varphi)} = \frac{n(n-1)}{r^2} V_n(\varphi) \\
-&= n(n-1) A_{n-1} r^{n-2} \int_0^{\varphi} \sin^{n-1} \varphi d\varphi.
+&= n(n-1) \sigma_{n-1} r^{n-2} \int_0^{\varphi} \sin^{n-1} \varphi d\varphi.
 \end{split}
 \]
 We also have
 \[
-\abs{\S^n(r)} = V_n(\pi) = r^n A_{n+1} = r^n \abs{\S^n(1)}
+\abs{\S^n(r)} = V_n(\pi) = r^n \abs{\S^n(1)} = r^n \sigma_{n+1}
 \]
 so that
 \[
-\abs{\S^n(r)}^{-(n-2)/n} \einsteinhilbert(\varphi) = n(n-1)A_{n+1}^{-(n-2)/n} A_n \int_0^{\varphi} \sin^{n-1} \varphi d\varphi.
+\abs{\S^n(r)}^{-(n-2)/n} \einsteinhilbert(\varphi) = n(n-1)\sigma_{n+1}^{-(n-2)/n} \sigma_n \int_0^{\varphi} \sin^{n-1} \varphi d\varphi.
 \]
 Let us just remark in passing that this confirms the scale invariance describe in remark \ref{rem:scaling}.
 
 Now the \emph{key idea} is that we may write \(\abs{\S^n(r)}^{-(n-2)/n} \einsteinhilbert(\varphi)\) as a function of \(x\), \(I\) and \(I'\). For this we have
 \begin{align*}
-x &= V_n(\varphi) = A_{n-1} r^n \int_0^{\varphi} \sin^{n-1} (\varphi) d\varphi \\
-I &= A_n(\varphi) = A_{n-1} r^{n-1} \sin^{n-1} \varphi \\
-I' &= A_{n-1} r^{n-1} (n-1) \sin^{n-2} (\varphi) \cos(\varphi)\frac{d\varphi}{dx}.
+x &= V_n(\varphi) = \sigma_{n-1} r^n \int_0^{\varphi} \sin^{n-1} (\varphi) d\varphi \\
+I &= A_n(\varphi) = \sigma_{n-1} r^{n-1} \sin^{n-1} \varphi \\
+I' &= \sigma_{n-1} r^{n-1} (n-1) \sin^{n-2} (\varphi) \cos(\varphi)\frac{d\varphi}{dx}.
 \end{align*}
-
-Note in particular that
+We have \(x = V_n(\varphi)\) satisfies
 \[
-I' = (n-1) \cot \varphi = (n-1) H_0
+\frac{dx}{d\varphi} = \sigma_{n-1} r^n \sin^{n-2} (\varphi) = r I.
 \]
-is the mean curvature along \(\bdry{B^n(\varphi)}\) as in the first variation formula.
+Thus
+\[
+\begin{split}
+I' &= \sigma_{n-1} r^{n-1} (n-1) \sin^{n-2} (\varphi) \cos(\varphi)\left[r \sigma_{n-1} r^{n-1} \sin^{n-1} (\varphi)\right]^{-1} \\
+&= (n-1)\frac{1}{r} \cot \varphi = (n-1) H_0
+\end{split}
+\]
+where \(H_0\) is the mean curvature along \(\bdry{B^n(\varphi)}\) as in the first variation formula.
 
 In two dimensions,
 \[
-\abs{\S^n(r)}^{-(n-2)/n} \einsteinhilbert(\varphi) = 4\pi (1 - \cos\varphi).
+\abs{\S^2(r)}^{-(2-2)/2} \einsteinhilbert(\varphi) = 4\pi (1 - \cos\varphi).
 \]
 and
 \begin{align*}
 x &= 2\pi r^2 (1-\cos\varphi) \\
-I &= 2\pi r \sin \varphi.
+I &= 2\pi r \sin \varphi \\
+I' &= \frac{1}{r} \cot \varphi.
 \end{align*}
-To compute \(I'\) we use that
-\[
-\partial_{\varphi} V_n = A_{n-1} r^n \sin^{n-1} \varphi = I
-\]
-and that \(x = V_n(\varphi)\), hence
-\[
-I' = \frac{1}{I} \partial_{\varphi} I = \frac{1}{A_{n-1} r^n \sin^{n-1} \varphi} A_{n-1} r^{n-1} (n-1) \sin^{n-2} \varphi \cos \varphi = (n-1) \frac{1}{r} \cot \varphi.
-\]
+Note that \(x\) scales \(r^2\), \(I\) scales like \(r\) and \(I'\) scales like \(1/r\).
 
 Then
 \[
-\varphi = \operatorname{arccot}\left(\frac{r}{n-1} I'\right)
+\varphi = \operatorname{arccot}\left(r I'\right)
 \]
-and hence
-\[
+and hence, for \(n=2\),
+\begin{equation}
+\label{eq:twosphere_einsteinhilbert}
 \begin{split}
-\abs{\S^n(r)}^{-(n-2)/n} \einsteinhilbert(\varphi) &= 4\pi \left[1 - \cos\left(\operatorname{arccot}\left(\frac{r}{n-1} I'\right)\right)\right] \\
-&= 4\pi \left[1 - \frac{r}{n-1} I' \left((\frac{r}{n-1} I')^2 + 1\right)^{-1/2}\right]
+\abs{\S^2(r)}^{-(2-2)/2} \einsteinhilbert(\varphi) &= 4\pi \left[1 - \cos\left(\operatorname{arccot}\left(r I'\right)\right)\right] \\
+&= 4\pi \left[1 - \frac{r I'}{\sqrt{1 + (r I')^2}}\right]
 \end{split}
+\end{equation}
+We have already seen that the left hand side is scale invariant, and just observed that \(I'\) scales like \(1/r\), hence the right hand side is also scale invariant.
+
+By the computation just before equation \eqref{eq:2d_viscosity_ricciflow}, using the Gauss-Bonnet formula, we have
+\[
+\einsteinhilbert = 4\pi - 2II'.
+\]
+
+Comparing with equation \eqref{eq:twosphere_einsteinhilbert}, we see that
+\[
+2I = \frac{4\pi r}{\sqrt{1 + (r I')^2}}.
+\]
+Indeed,
+\[
+\sqrt{1 + (r I')^2} = \sqrt{1 + r^2 \frac{1}{r^2} \cot^2 \varphi} = \sqrt{1 + \frac{\cos^2\varphi}{\sin^2\varphi}} = \frac{1}{\sin\varphi}
+\]
+so that
+\[
+\frac{4\pi r}{\sqrt{1 + (r I')^2}} = 4\pi r \sin \varphi = 2I.
+\]
+
+Thus we define,
+\[
+f_0(x, I, I') = 4\pi - 2II'
+\]
+and so obtain for the sphere,
+\[
+\partial_t I = I^2I'' + I(I')^2 + 4\pi I' - 2I(I')^2 = I^2I'' + I(I')^2 + f_0(x, I, I') I'.
 \]
 \subsection{Comparison Function}
 
@@ -592,6 +621,14 @@ and hence
 \item Then I think we obtain a linear differential inequality which can be solved more or less explicitly
 \item Either that, or we change variables by substituting the sphere profile and seeking a similarity solution.
 \end{itemize}
+
+In the general case, in two dimensions, the computation just before equation \eqref{eq:2d_viscosity_ricciflow} using the Gauss-Bonnet formula gives
+\[
+\einsteinhilbert = 4\pi\chi(\Omega_0) - 2II' = 2\pi - 2II' = f_0(x, I, I')
+\]
+whenever \(\bdry{\Omega_0}\) is connected and \(M^2\) is simply connected, by the Jordan curve theorem.
+
+Now we seek to linearise the isoperimetric profile around the sphere isoperimetric profile in order to construct our comparison function.
 
 \section{Convergence To Constant Curvature}
 
